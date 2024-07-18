@@ -154,7 +154,7 @@ athlete_data = athlete_data[['Id',
     
 athlete_donor_search = athlete_donor_search[['DS Rating',
                                              'Quality Score',
-                                             'ID',
+                                             'Client ID',
                                              'SP-First',
                                              'SP-Middle',
                                              'SP-Last',
@@ -168,7 +168,7 @@ athlete_donor_search = athlete_donor_search[['DS Rating',
                                              'Religion Count',
                                              'Society Benefit Count']]
     
-athlete_data = pd.merge(athlete_data, athlete_donor_search, how = 'left', left_on = 'Id', right_on = 'ID')
+athlete_data = pd.merge(athlete_data, athlete_donor_search, how = 'left', left_on = 'Id', right_on = 'Client ID')
 
 athlete_data = pd.merge(athlete_data, athlete_tasks, how = 'left', left_on = 'Id', right_on = 'AccountId').sort_values(by='Quality Score', ascending=False)
 
